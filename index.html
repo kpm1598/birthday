@@ -231,5 +231,24 @@
         $(".box__letter").slideUp();
         $(".letter__border").slideUp();
     })
+    <audio id="bg-music" autoplay loop>
+  <source src="Aakasha Neene Song - With Kannada Lyrics  Ambari Movie  Yogesh  Sonu Nigam  Super Hit Song" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Handle browser autoplay restrictions
+  const music = document.getElementById('bg-music');
+
+  // Try to play on load
+  window.addEventListener('load', () => {
+    music.play().catch(() => {
+      // If autoplay fails, wait for first click
+      document.addEventListener('click', () => {
+        music.play();
+          music.volume = 0.3; // 30% volume
+      }, { once: true });
+    });
+  }); 
 </script>
 </html>
